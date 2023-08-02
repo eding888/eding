@@ -78,9 +78,10 @@ function handleRadioChange(event) {
 
 
 const sinYIntercept = 1.25;
-const graphHeight = 33; //in characters
+const graphHeight = 34; //in characters
 
 let width;
+let heigh
 let maxCharWidth;
 let piWindow;
 let xCoordSpacing;
