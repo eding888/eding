@@ -44,6 +44,7 @@ input{
 @media only screen and (max-width: 900px) {
   #graphDiv{
     text-align: center;
+    font-size: 1.9rem;
   }
 }
 #infoCard{
