@@ -107,7 +107,7 @@ input{
 
 
 .animateScroll {
-  animation: animateScroll 0.8s ease-in-out forwards;
+  animation: animateScroll 0.8s ease-in forwards;
 }
 
 .slideFromBottom{
