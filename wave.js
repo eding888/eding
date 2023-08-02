@@ -78,7 +78,7 @@ function handleRadioChange(event) {
 
 
 const sinYIntercept = 1.25;
-const graphHeight = 34; //in characters
+let graphHeight = 34; //in characters
 
 let width;
 let heigh
@@ -90,11 +90,12 @@ let cycleInterval;
 const updateValues = () => {
   width = graphDiv.offsetWidth;
   maxCharWidth = Math.floor(width / 14.56);
-  if(width < 1000){
-    maxCharWidth += 5;
+  if(width < 800){
+    graphHeight = 28
     piWindow = (piMult / 2) * Math.PI;
   }
   else{
+    graphHeight = 34;
     piWindow = piMult * Math.PI;
   }
   xCoordSpacing = piWindow / maxCharWidth;

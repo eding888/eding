@@ -42,7 +42,11 @@ input{
   word-wrap: break-word;
   font-size: 1.51rem;
 }
-
+@media only screen and (max-width: 900px) {
+  #graphDiv{
+    font-size: 1.7rem;
+  }
+}
 #infoCard{
   display: flex;
   position: absolute;
