@@ -1,0 +1,7 @@
+#graphDiv{
+  font-family: monospace, monospace;
+  display: flex;
+  word-wrap: break-word;
+  font-size: 1.51rem;
+  text-align: center;
+}
