@@ -91,7 +91,7 @@ const updateValues = () => {
   width = graphDiv.offsetWidth;
   maxCharWidth = Math.floor(width / 14.56);
   if(width < 1000){
-    maxCharWidth += 2;
+    maxCharWidth += 5;
     piWindow = (piMult / 2) * Math.PI;
   }
   else{
