@@ -40,11 +40,10 @@ input{
   display: inline-block;
   word-wrap: break-word;
   font-size: 1.51rem;
-  text-align: center;
 }
 @media only screen and (max-width: 900px) {
   #graphDiv{
-    font-size: 1.83rem;
+    text-align: center;
   }
 }
 #infoCard{
