@@ -5,18 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./styles.css">
+  <script src = './wave.js' defer></script>
   <script src = './script.js' defer></script>
 </head>
 <body>
   <div id ="graphDiv"></div>
   <div id = "infoCard">
-    <h2>Eddy Ding</h2>
-    <p>A computer science student at the University of North Carolina Chapel Hill interested in fullstack web development.</p>
+    <h2 style = 'width: 300px'>Eddy Ding</h2>
+    <p id = blurb>A computer science student at the University of North Carolina Chapel Hill interested in software development.</p>
     <div id = "icons">
       <img src="https://img.freepik.com/free-icon/linkedin_318-246161.jpg" alt="">
       <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="">
       <img src="https://www.freeiconspng.com/thumbs/email-icon/email-icon--clipart-best-22.png" alt="">
     </div>
+    <div id = "configure">configure graph</div>
+    <div id = "config-box" class = 'gone'>
+      <div id = "close">close</div>
+      <div>
+        <form action="">
+          <div>
+            <input type="radio" id="sin" value="sin" name = "wave" checked />
+            <label for="sin">sin</label>
+          </div>
+
+          <div>
+            <input type="radio" id="cos" value="cos" name = "wave"/>
+            <label for="cos">cos</label>
+          </div>
+
+          <div>
+            <input type="radio" id="tan" value="tan" name = "wave" />
+            <label for="tan">tan</label>
+          </div>
+        </form>
+      </div>
+      <div>
+        <div>Frequency</div>
+        <input type="range" id = "frequency" max = 5 min = 1 value= 2>
+      </div>
+
+      <div>
+        <div>Amplitude</div>
+        <input type="range" id = "amplitude" max = 5 min = 1 value= 1>
+      </div>
+
+      <div>
+        <div>Window</div>
+        <input type="range" id = "window" max = 5 min = 1 value= 3>
+      </div>
+
+      <div>
+        <div># sin waves</div>
+        <input type="range" id = "sin-mult" max = 5 min = 0 value= 1>
+      </div>
+
+      <div>
+        <div># cos waves</div>
+        <input type="range" id = "cos-mult" max = 5 min = 0 value= 0>
+      </div>
+
+      <div>
+        <div># tan waves</div>
+        <input type="range" id = "tan-mult" max = 5 min = 0 value= 0>
+      </div>
+
+      <div>
+        <div>character</div>
+        <input type="text" id = "character">
+      </div>
+    </div>
   </div>
+
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
+  <h1>Bals</h1>
 </body>
 </html>

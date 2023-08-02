@@ -1,6 +1,43 @@
+body{
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+#configure{
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  top: 0px;
+  font-size: 0.8rem;
+}
+#close{
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#config-box{
+  position: absolute;
+  top: -150px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 2px solid black;
+  box-shadow: 2px 2px 1px black;
+}
+.gone{
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+}
+input{
+  width: 70px;
+}
 #graphDiv{
   font-family: monospace, monospace;
-  width: 100vw;
+  width: 100%;
   display: inline-block;
   word-wrap: break-word;
   font-size: 1.51rem;
@@ -9,13 +46,13 @@
 
 #infoCard{
   display: flex;
-  position: fixed;
+  position: absolute;
   border: 2px solid black;
   background: white;
   padding: 30px;
 
   height: 25%;
-  width: 30%;
+  width: clamp(300px, 30%, 1500px);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -43,4 +80,86 @@
 #icons img {
     height: 100%;
     aspect-ratio: 1 / 1;
+}
+
+
+
+
+
+#infoCard.animateScroll #icons.rightAlignedIcons {
+  justify-content: center;
+  margin-top: 0px;
+  width: 300px;
+}
+
+:root{
+  --toppx: 30px;
+  --heightpx: 10px;
+}
+
+
+
+.animateScroll {
+  animation: animateScroll 0.8s ease-in-out forwards;
+}
+
+.slideFromBottom{
+  animation: slideInFromBottom 0.8s ease-in-out forwards;
+}
+
+.gone-anim {
+  animation: disappear 0.5s ease-in-out forwards;
+}
+@keyframes animateScroll {
+  0% {
+    position:fixed;
+    box-shadow: none;
+    flex-direction: row;
+    top: var(--toppx);
+  }
+  20%{
+    position:fixed;
+    box-shadow: none;
+    height: var(--heightpx);
+    top: var(--toppx);
+  }
+  50%{
+    position:fixed;
+    box-shadow: none;
+    height: var(--heightpx);
+    top: var(--toppx);
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  100% {
+    position:fixed;
+    height: var(--heightpx);
+    top: var(--toppx);
+    width: 100%;
+    box-shadow: none;
+    padding-top: var(--toppx);
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 1px black solid;
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 100%;
+  }
+}
+
+@keyframes disappear {
+  0%{
+    opacity: 100%;
+  }
+  100%{
+    opacity: 0%;
+  }
 }
