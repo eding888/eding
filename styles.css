@@ -1,6 +1,7 @@
 #graphDiv{
   font-family: monospace, monospace;
-  display: flex;
+  width: 100vw;
+  display: inline-block;
   word-wrap: break-word;
   font-size: 1.51rem;
   text-align: center;
