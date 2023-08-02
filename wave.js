@@ -88,6 +88,15 @@ let xCoordSpacing;
 let cycleInterval;
 
 const updateValues = () => {
+  width = graphDiv.offsetWidth;
+  maxCharWidth = Math.floor(width / 14.56);
+  if(width < 1000){
+    maxCharWidth += 2;
+    piWindow = (piMult / 2) * Math.PI;
+  }
+  else{
+    piWindow = piMult * Math.PI;
+  }
   xCoordSpacing = piWindow / maxCharWidth;
   cycleInterval = piWindow / cycleNumber;
 }
@@ -138,15 +147,6 @@ const draw = () => {
 }
 
 const resizeObserver = new ResizeObserver(entries => {
-  width = graphDiv.offsetWidth;
-  maxCharWidth = Math.floor(width / 14.56);
-  if(width < 1000){
-    maxCharWidth += 2;
-    piWindow = (piMult / 2) * Math.PI;
-  }
-  else{
-    piWindow = piMult * Math.PI;
-  }
   draw();
 });
 
