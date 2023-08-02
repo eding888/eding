@@ -1,7 +1,6 @@
 body{
   overflow-x: hidden;
   width: 100vw;
-  font-size: 1rem;
 }
 
 #configure{
@@ -41,6 +40,7 @@ input{
   display: inline-block;
   word-wrap: break-word;
   font-size: 1.51rem;
+  text-align: center;
 }
 @media only screen and (max-width: 900px) {
   #graphDiv{

@@ -81,7 +81,6 @@ const sinYIntercept = 1.25;
 let graphHeight = 34; //in characters
 
 let width;
-let heigh
 let maxCharWidth;
 let piWindow;
 let xCoordSpacing;
