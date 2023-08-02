@@ -3,16 +3,14 @@ const graphDiv = document.getElementById('graphDiv');
 const sin = document.getElementById('sin');
 const cos = document.getElementById('cos');
 const tan = document.getElementById('tan');
-
 const amplitude = document.getElementById('amplitude');
 const frequency = document.getElementById('frequency');
 const windowSize = document.getElementById('window');
-
 const sinMult = document.getElementById('sin-mult');
 const cosMult = document.getElementById('cos-mult');
 const tanMult = document.getElementById('tan-mult');
-
 const character = document.getElementById('character');
+const speed = document.getElementById('speed');
 
 let selectedFunction = Math.sin;
 let amp = 1;
@@ -21,6 +19,7 @@ let piMult = 3;
 let sinNum = 1;
 let cosNum = 0;
 let tanNum = 0;
+let cycleNumber = 200;
 let char = '@';
 
 sin.addEventListener('change', handleRadioChange);
@@ -34,11 +33,9 @@ amplitude.addEventListener('change', () => {
 frequency.addEventListener('change', () => {
   freq = frequency.value;
 });
-
 windowSize.addEventListener('change', () => {
   piMult = windowSize.value;
 });
-
 sinMult.addEventListener('change', () => {
   sinNum = sinMult.value;
 });
@@ -48,12 +45,16 @@ cosMult.addEventListener('change', () => {
 tanMult.addEventListener('change', () => {
   tanNum = tanMult.value;
 });
-
+speed.addEventListener('change', () => {
+  cycleNumber = speed.value;
+  console.log(cycleNumber)
+});
 character.addEventListener('change', () => {
   let text = character.value;
   console.log(text);
   char = text.charAt(0);
 });
+
 
 function handleRadioChange(event) {
   if (event.target.checked) {
@@ -75,14 +76,19 @@ function handleRadioChange(event) {
   }
 }
 
+
+const sinYIntercept = 1.25;
+const graphHeight = 33; //in characters
+
 let width;
 let maxCharWidth;
 let piWindow;
 let xCoordSpacing;
+let cycleInterval;
 
 const updateValues = () => {
   width = graphDiv.offsetWidth;
-  maxCharWidth = Math.floor(width / 14.56) - 1;
+  maxCharWidth = Math.floor(width / 14.56);
   if(width < 1000){
     piWindow = (piMult / 2) * Math.PI;
   }
@@ -90,28 +96,20 @@ const updateValues = () => {
     piWindow = piMult * Math.PI;
   }
   xCoordSpacing = piWindow / maxCharWidth;
+  cycleInterval = piWindow / cycleNumber;
 }
 
 updateValues();
 
 
-const sinYIntercept = 1.5;
-const graphHeight = 33; //in characters
-
-function generateRandomCharacter() {
-  const characters = 'ab';
-  const randomIndex = Math.floor(Math.random() * characters.length);
-  return characters[randomIndex];
-}
-
-const populateDiv = (sinValues) => {
+const populateDiv = (waveValues) => {
   const yCoordSpacing = (sinYIntercept + 1) / graphHeight;
   let text = "";
   let currentY = sinYIntercept + 1;
 
   for(let x = 0; x < graphHeight; x++){
     for(let i = 0; i < maxCharWidth; i++){
-      if(currentY < sinValues[i]){
+      if(currentY < waveValues[i]){
         text += char;
       }
       else{
@@ -125,12 +123,12 @@ const populateDiv = (sinValues) => {
   graphDiv.innerHTML = `<pre>${text}</pre>`;
 
 }
-const getSinValuesForEachChar = (xOffset) => {
-  let sinValues = [];
+const getwaveValuesForEachChar = (xOffset) => {
+  let waveValues = [];
   let currentX = xCoordSpacing;
 
   for(let i = 0; i < maxCharWidth; i++){
-    sinValues.push((amp * (selectedFunction(freq * (currentX + xOffset))
+    waveValues.push((amp * (selectedFunction(freq * (currentX + xOffset))
                         * (sinNum != 0 ? Math.sin(currentX) * sinNum: 1)
                         * (cosNum != 0 ? Math.cos(currentX) * cosNum: 1)
                         * (tanNum != 0 ? Math.tan(currentX) * tanNum: 1)
@@ -138,14 +136,12 @@ const getSinValuesForEachChar = (xOffset) => {
     currentX += xCoordSpacing;
   };
   //console.log(width, maxCharWidth, piWindow, xCoordSpacing);
-  return sinValues;
+  return waveValues;
 }
-
-let x = 0;
 
 const draw = () => {
   updateValues();
-  populateDiv(getSinValuesForEachChar(x));
+  populateDiv(getwaveValuesForEachChar(x));
 }
 
 const resizeObserver = new ResizeObserver(entries => {
@@ -154,7 +150,12 @@ const resizeObserver = new ResizeObserver(entries => {
 
 resizeObserver.observe(graphDiv);
 
+
+let x = 0;
 setInterval(() => {
   draw();
-  x += 0.05;
+  x += cycleInterval;
+  if(x >= 1000){
+    x = 0;
+  }
 }, 50);
