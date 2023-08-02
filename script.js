@@ -68,6 +68,6 @@ resizeObserver.observe(graphDiv);
   setInterval(() => {
     console.log('hi')
     updateValues();
-    populateDiv(getSinValuesForEachChar(x));
-    x += 0.1;
-  }, 100);
+    populateDiv(getSinValuesForEachChar(x,1));
+    x += 0.05;
+  }, 50);
