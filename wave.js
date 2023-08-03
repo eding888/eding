@@ -20,7 +20,7 @@ let sinNum = 1;
 let cosNum = 0;
 let tanNum = 0;
 let cycleNumber = 110;
-let char = '@';
+let char = generateRandomCharacter();
 
 sin.addEventListener('change', handleRadioChange);
 cos.addEventListener('change', handleRadioChange);
@@ -47,11 +47,9 @@ tanMult.addEventListener('change', () => {
 });
 speed.addEventListener('change', () => {
   cycleNumber = speed.value;
-  console.log(cycleNumber)
 });
 character.addEventListener('change', () => {
   let text = character.value;
-  console.log(text);
   char = text.charAt(0);
 });
 
@@ -76,6 +74,12 @@ function handleRadioChange(event) {
   }
 }
 
+function generateRandomCharacter() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()+=|{}[]><';
+  const randomIndex = Math.floor(Math.random() * characters.length);
+  return characters[randomIndex];
+}
+
 
 const sinYIntercept = 1.25;
 let graphHeight = 34; //in characters
@@ -89,7 +93,6 @@ let cycleInterval;
 const updateValuesOnResize = () => {
   width = graphDiv.offsetWidth;
   maxCharWidth = Math.floor(width / 14.56);
-  console.log(maxCharWidth)
   if(width < 900){
     graphHeight = 28
     piWindow = (piMult / 2) * Math.PI;
@@ -160,7 +163,6 @@ function checkZoomChange() {
     const newZoom = window.innerWidth / window.outerWidth;
 
     if (newZoom !== currentZoom) {
-      console.log('hi')
       updateValuesOnRender();
       draw();
     }
