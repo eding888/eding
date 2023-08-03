@@ -85,26 +85,17 @@ let maxCharWidth;
 let piWindow;
 let xCoordSpacing;
 let cycleInterval;
-width = graphDiv.offsetWidth;
-  maxCharWidth = Math.floor(width / 14.56);
-  if(width < 800){
-    graphHeight = 28
-    piWindow = (piMult / 2) * Math.PI;
-  }
-  else{
-    graphHeight = 34;
-    piWindow = piMult * Math.PI;
-  }
+
 const updateValuesOnResize = () => {
   width = graphDiv.offsetWidth;
   maxCharWidth = Math.floor(width / 14.56);
   console.log(maxCharWidth)
-  if(width < 800){
+  if(width < 900){
     graphHeight = 28
     piWindow = (piMult / 2) * Math.PI;
   }
   else{
-    graphHeight = 34;
+    graphHeight = 37;
     piWindow = piMult * Math.PI;
   }
 }
