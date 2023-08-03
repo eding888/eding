@@ -35,6 +35,12 @@ frequency.addEventListener('change', () => {
 });
 windowSize.addEventListener('change', () => {
   piMult = windowSize.value;
+  if(width < 900){
+    piWindow = (piMult / 2) * Math.PI;
+  }
+  else{
+    piWindow = piMult * Math.PI;
+  }
 });
 sinMult.addEventListener('change', () => {
   sinNum = sinMult.value;
@@ -105,6 +111,7 @@ const updateValuesOnResize = () => {
 const updateValuesOnRender = () => {
   xCoordSpacing = piWindow / maxCharWidth;
   cycleInterval = piWindow / cycleNumber;
+  console.log(piWindow);
 }
 
 updateValuesOnResize();
