@@ -85,8 +85,17 @@ let maxCharWidth;
 let piWindow;
 let xCoordSpacing;
 let cycleInterval;
-
-const updateValues = () => {
+width = graphDiv.offsetWidth;
+  maxCharWidth = Math.floor(width / 14.56);
+  if(width < 800){
+    graphHeight = 28
+    piWindow = (piMult / 2) * Math.PI;
+  }
+  else{
+    graphHeight = 34;
+    piWindow = piMult * Math.PI;
+  }
+const updateValuesOnResize = () => {
   width = graphDiv.offsetWidth;
   maxCharWidth = Math.floor(width / 14.56);
   if(width < 800){
@@ -97,11 +106,14 @@ const updateValues = () => {
     graphHeight = 34;
     piWindow = piMult * Math.PI;
   }
+}
+const updateValuesOnRender = () => {
   xCoordSpacing = piWindow / maxCharWidth;
   cycleInterval = piWindow / cycleNumber;
 }
 
-updateValues();
+updateValuesOnResize();
+updateValuesOnRender();
 
 
 const populateDiv = (waveValues) => {
@@ -142,11 +154,12 @@ const getwaveValuesForEachChar = (xOffset) => {
 }
 
 const draw = () => {
-  updateValues();
+  updateValuesOnRender();
   populateDiv(getwaveValuesForEachChar(x));
 }
 
 const resizeObserver = new ResizeObserver(entries => {
+  updateValuesOnRender();
   draw();
 });
 
@@ -157,7 +170,7 @@ let x = 0;
 setInterval(() => {
   draw();
   x += cycleInterval;
-  if(x >= 1000){
+  if(x >= 200){
     x = 0;
   }
 }, 50);
