@@ -19,7 +19,7 @@ let piMult = 3;
 let sinNum = 1;
 let cosNum = 0;
 let tanNum = 0;
-let cycleNumber = 200;
+let cycleNumber = 110;
 let char = '@';
 
 sin.addEventListener('change', handleRadioChange);
@@ -98,6 +98,7 @@ width = graphDiv.offsetWidth;
 const updateValuesOnResize = () => {
   width = graphDiv.offsetWidth;
   maxCharWidth = Math.floor(width / 14.56);
+  console.log(maxCharWidth)
   if(width < 800){
     graphHeight = 28
     piWindow = (piMult / 2) * Math.PI;
