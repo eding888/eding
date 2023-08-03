@@ -95,7 +95,7 @@ const updateValuesOnResize = () => {
     piWindow = (piMult / 2) * Math.PI;
   }
   else{
-    graphHeight = 37;
+    graphHeight = 35;
     piWindow = piMult * Math.PI;
   }
 }
