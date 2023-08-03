@@ -160,9 +160,22 @@ const draw = () => {
 }
 
 const resizeObserver = new ResizeObserver(entries => {
-  updateValuesOnRender();
+  updateValuesOnResize();
   draw();
 });
+let currentZoom = 1;
+
+function checkZoomChange() {
+    const newZoom = window.innerWidth / window.outerWidth;
+
+    if (newZoom !== currentZoom) {
+      console.log('hi')
+      updateValuesOnRender();
+      draw();
+    }
+}
+
+window.addEventListener("resize", checkZoomChange);
 
 resizeObserver.observe(graphDiv);
 
