@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Starting development of TaskWizard",
+    "date": "7/31/2023",
+    "body": "Hej, This will probably the first of many little updates on the development process of TaskWizard, and so far, it’s been going semi-smoothly. It’s day 2 of development, and I have set up the boilerplate for my react and node.js front and backends, with the backend getting developed first. After installing all the basic npm packages that I’ll need, I made the choice of going with typescript to ensure that the backend is all smooth sailing. Little did I know that not knowing much of anything about typescript is not a good idea when using typescript. But it’s been an experience googling and researching my way through into refactoring my js files into ts (but the sad part is getting linting to work somehow took twice as long). On the horizon, I’m looking to get the token authentication with refresh tokens done next. Then, I think I’ll write up some unit tests with jest to make sure all the tokens and user documents are created smoothly. Then I’ll tackle email authentication."
+  },
+  {
+    "name": "TaskWizard progress being made",
+    "date": "8/5/2023",
+    "body": "These past few days of working on TaskWizard made me learn quite a bit about how to construct an api. So far, I have completed a token dispensing feature, with authentication tokens which expire quickly and refresh tokens that expire after an extended period of time. I have also implemented the email verification feature, where the user has to verify their email to have an authenticated account. What I’m really proud of is the unit test that I have made which successfully emulates the full process of creating a new user and having it log in. I did this by using a temporary email api to send the confirmation email to, then fetching it with the api to read the code. It came in handy today when making a regex to ensure there are no wacky characters in the email; I forgot to make it allow dots, dashes and underscores as I found out with the failing test. At this point, what I’m most concerned about in terms of development is ensuring the security of the api because I obviously do not want any user data to be leaked. I will be doing research into cross site scripting and nosql injection attacks and making my api impervious to them. -eding"
+  },
+  {
+    "name": "TaskWizard frontend first strides",
+    "date": "8/12/2023",
+    "body": "A lot of my time spent developing TaskWizard was allotted to fixing security holes in the backend api. After some research, I found out that it was vulnerable to CSRF and cors attacks. I also found out that my token authentication system was done a little improperly. This led to quite a bit of refactoring and debugging, which in turn, led to a more airtight backend api. I feel like now it is quite impervious to a lot of different attacks. Today, I also got started on the frontend by starting on the landing page. After creating the boilerplate with create-react-app and the typescript template, I found out about chakra ui which made it MUCH easier to get everything together. I will continue to use this library for the rest of the website. -eding"
+  }
+]

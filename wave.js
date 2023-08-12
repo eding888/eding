@@ -111,7 +111,6 @@ const updateValuesOnResize = () => {
 const updateValuesOnRender = () => {
   xCoordSpacing = piWindow / maxCharWidth;
   cycleInterval = piWindow / cycleNumber;
-  console.log(piWindow);
 }
 
 updateValuesOnResize();
