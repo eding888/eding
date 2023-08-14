@@ -88,7 +88,7 @@ function generateRandomCharacter() {
 
 
 const sinYIntercept = 1.25;
-let graphHeight = 34; //in characters
+let graphHeight = 35; //in characters
 
 let width;
 let maxCharWidth;

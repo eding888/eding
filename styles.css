@@ -115,7 +115,7 @@ input{
 
 
 .animateScroll {
-  animation: animateScroll 0.8s ease-in forwards;
+  animation: animateScroll 2s forwards;
 }
 
 .slideFromBottom{
@@ -138,7 +138,7 @@ input{
     height: var(--heightpx);
     top: var(--toppx);
   }
-  50%{
+  95%{
     position:fixed;
     box-shadow: none;
     height: var(--heightpx);
