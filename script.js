@@ -27,6 +27,8 @@ window.addEventListener('scroll', () => {
   }
 });
 
+
+
 configure.addEventListener('click', () => {
   configBox.classList.add('slideFromBottom');
   configBox.classList.remove('gone');
