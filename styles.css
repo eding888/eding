@@ -87,12 +87,12 @@ input{
   margin-top: 30px;
 }
 
-#github, #linkedin, #email{
+img{
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
 
-#github:hover, #linkedin:hover, #email:hover{
+img:hover{
   transform: scale(1.1);
 }
 #icons img {
@@ -100,7 +100,24 @@ input{
     aspect-ratio: 1 / 1;
 }
 
-
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.8);
+  }
+  75% {
+    transform: rotate(-5deg) scale(1.8);
+  }
+}
+#hi:hover {
+  cursor: pointer;
+  animation: wiggle 1.5s infinite ease-in-out;
+}
 
 
 
@@ -196,11 +213,16 @@ input{
 }
 .box {
   display: flex;
+  width: 250px;
   flex-direction: column;
   align-items: center;
 }
+li {
+  margin-bottom: 2px;
+}
 #content h2 {
   padding: 0px;
+  margin: 10px;
 }
 #content li {
   text-align: left;
@@ -209,6 +231,9 @@ input{
   width: 200px;
 }
 
+#blurb1 {
+  width: 700px
+}
 @media (max-width: 767px) {
   #boxes {
     display: flex;
@@ -216,5 +241,8 @@ input{
     flex-direction: column;
     justify-content: center;
     gap: 50px;
+  }
+  #blurb1 {
+    width: 80%;
   }
 }
