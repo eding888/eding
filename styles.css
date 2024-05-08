@@ -87,12 +87,12 @@ input{
   margin-top: 30px;
 }
 
-img{
+#icons img{
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
 
-img:hover{
+#icons img:hover{
   transform: scale(1.1);
 }
 #icons img {
@@ -198,65 +198,70 @@ img:hover{
     opacity: 0%;
   }
 }
-
+#blogs{
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  cursor: pointer;
+}
+.blog:hover{
+  transform: translateX(-10px);
+}
 #content {
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
 }
-#boxes {
+
+.blog {
+  height: 150px;
+  width: 600px;
   display: flex;
-  width: 100%;
+  justify-content: space-between;
+  padding-left: 15px;
+  border: 1px solid lightgrey;
+  transition: transform 0.3s ease-in-out;
+}
+.blogthumbnail {
+  margin-left: 8px;
+  border-left: 1px solid lightgrey;
+  width: 25%; /* or a specific px value */
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover; 
+}
+.blogtext {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 50px;
+  gap: 10px;
 }
-.box {
-  display: flex;
-  width: 250px;
-  flex-direction: column;
-  align-items: center;
+.blogblurb{
+  color: grey;
 }
 
-.widebox {
-  display: flex;
-  width: 450px;
-  flex-direction: column;
-  align-items: center;
+.bloglink {
+  font-size: 12px;
+  color: #A0A0A0;
 }
-li {
-  margin-bottom: 2px;
-}
-#content h2 {
-  padding: 0px;
-  margin: 10px;
-}
-#content li {
-  text-align: left;
-}
-#content img {
-  width: 200px;
-}
-
-#blurb1 {
-  width: 700px
-}
-@media (max-width: 767px) {
-  #boxes {
+@media (max-width: 600px) {
+  .blog {
+    height: 300px;
+    width: 400px;
     display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+    justify-content: space-between;
+    padding-left: 15px;
+    border: 1px solid lightgrey;
+    transition: transform 0.3s ease-in-out;
   }
-  .widebox {
-    display: flex;
-    width: 250px;
-    flex-direction: column;
-    align-items: center;
-  }
-  #blurb1 {
-    width: 80%;
+  .blogthumbnail {
+    margin-left: 8px;
+    border-left: 1px solid lightgrey;
+    width: 35%; /* or a specific px value */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover; 
   }
 }
